@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">planistage</string>
+    <string name="titre_eleve">ÉLÈVE</string>
+    <string name="Nom">Nom :</string>
+    <string name="titre_entreprise">ENTREPRISE</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>
