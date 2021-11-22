@@ -4,4 +4,15 @@
     <string name="Nom">Nom :</string>
     <string name="titre_entreprise">ENTREPRISE</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="titre_stage">Stage</string>
+    <string name="Journées_de_Stage">Journées de Stage</string>
+    <string name="wednesday">Mercredi</string>
+    <string name="thursday">Jeudi</string>
+    <string name="friday">vendredi</string>
+    <string name="HoraireStage">Horaire de Stage</string>
+    <string name="HoraireDiner">Horaire de Diner</string>
+    <string name="frequenceVisites">Fréquences des visites (par semaine)</string>
+    <string name="once">1 fois</string>
+    <string name="twice">2 fois</string>
+    <string name="thrice">3 fois</string>
 </resources>

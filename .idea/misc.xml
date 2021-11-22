@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/School/Session Automne 2021/Mobile_partie2/app/src/main/res/layout/activity_edit_stage.xml" value="0.41041666666666665" />
+        <entry key="..\:/School/Session Automne 2021/Mobile_partie2/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/School/Session Automne 2021/Mobile_partie2/app/src/main/res/layout/activity_maps.xml" value="0.20520833333333333" />
+        <entry key="..\:/School/Session Automne 2021/Mobile_partie2/app/src/main/res/layout/creation_stage.xml" value="0.20520833333333333" />
+        <entry key="..\:/School/Session Automne 2021/Mobile_partie2/app/src/main/res/layout/flag_selection.xml" value="0.20520833333333333" />
+        <entry key="..\:/School/Session Automne 2021/Mobile_partie2/app/src/main/res/layout/stage_view.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/pprad/AndroidStudioProjects/planistage/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/pprad/AndroidStudioProjects/planistage/app/src/main/res/drawable/ic_baseline_event_24.xml" value="0.4036458333333333" />
         <entry key="..\:/Users/pprad/AndroidStudioProjects/planistage/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.1" />
