@@ -223,6 +223,13 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp" />
 
+                <Button
+                    android:id="@+id/buttonHStage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="timePickerStage"
+                    android:text="Temps" />
+
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="match_parent"
@@ -233,6 +240,14 @@
                     android:text="@string/HoraireDiner"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/buttonHDiner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="timePickerDiner"
+                    android:text="Temps" />
 
                 <TextView
                     android:id="@+id/textView11"

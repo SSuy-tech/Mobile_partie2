@@ -2,16 +2,20 @@ package ca.qc.bdeb.c5gm.planistage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.concurrent.CompletableFuture;
 
@@ -45,6 +49,10 @@ public class EditStage extends AppCompatActivity {
     private TextView tvVille;
     private TextView tvProvince;
     private TextView tvCodePostal;
+
+    private Button timePickStage;
+    private Button timePickDiner;
+    private int hourS, minuteS;
 
 
     @Override
@@ -90,6 +98,9 @@ public class EditStage extends AppCompatActivity {
         tvProvince = findViewById(R.id.provinceView);
         // spinner élèves
         eleveSp = findViewById(R.id.eleve_spinner);
+        //Buttons
+        timePickStage = findViewById(R.id.buttonHStage);
+        timePickDiner = findViewById(R.id.buttonHDiner);
         eleveAdapter = new ArrayAdapter<Compte>(
                 this, android.R.layout.simple_spinner_item, listeEleves);
         eleveAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -116,8 +127,8 @@ public class EditStage extends AppCompatActivity {
         entrepriseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         entrepriseSp.setAdapter(entrepriseAdapter);
         if (entrepriseSeletion != null) {
-            for (int pos = 0; pos < listeEntreprises.size();pos++){
-                if(listeEntreprises.get(pos).getId().compareTo(entrepriseSeletion.getId())==0){
+            for (int pos = 0; pos < listeEntreprises.size(); pos++) {
+                if (listeEntreprises.get(pos).getId().compareTo(entrepriseSeletion.getId()) == 0) {
                     entrepriseSp.setSelection(pos);
                     break;
                 }
@@ -157,5 +168,32 @@ public class EditStage extends AppCompatActivity {
         setResult(RESULT_OK, intentMessage);
 
         finish();
+    }
+
+    public void timePickerStage(View view) {
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int SelectedH, int SelectedM) {
+                hourS = SelectedH;
+                minuteS = SelectedM;
+                timePickStage.setText(String.format(Locale.getDefault(), "%02d:%02d", hourS, minuteS));
+            }
+        };
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hourS, minuteS, true);
+        timePickerDialog.setTitle("Temps?");
+        timePickerDialog.show();
+    }
+    public void timePickerDiner(View view){
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int SelectedH, int SelectedM) {
+                hourS = SelectedH;
+                minuteS = SelectedM;
+                timePickDiner.setText(String.format(Locale.getDefault(), "%02d:%02d", hourS, minuteS));
+            }
+        };
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hourS, minuteS, true);
+        timePickerDialog.setTitle("Temps?");
+        timePickerDialog.show();
     }
 }
