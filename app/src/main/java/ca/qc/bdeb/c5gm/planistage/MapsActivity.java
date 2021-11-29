@@ -91,6 +91,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         reperes = new ArrayList<>();
     }
 
+    public void buttonClicked(View view){
+        if(view.getId() == R.id.boutonListe){
+            setContentView(R.layout.activity_main);
+        } else if(view.getId() == R.id.boutonCarte){
+            setContentView(R.layout.activity_maps);
+        } else if(view.getId() == R.id.boutonCalendrier){
+            setContentView(R.layout.activity_schedule);
+        } else {
+            setContentView(R.layout.activity_main);
+        }
+    }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.

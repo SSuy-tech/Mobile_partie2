@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="800dp"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -10,6 +11,41 @@
         android:layout_height="wrap_content"
         android:text="Horaire"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/boutonListe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="buttonClicked"
+                app:srcCompat="@drawable/bouton_liste" />
+
+            <ImageView
+                android:id="@+id/boutonCarte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="buttonClicked"
+                app:srcCompat="@drawable/bouton_carte" />
+
+            <ImageView
+                android:id="@+id/boutonCalendrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="buttonClicked"
+                app:srcCompat="@drawable/bouton_calendrier" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -94,54 +130,165 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="0dp"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <RelativeLayout
             android:id="@+id/relativeLayout242"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="0dp" >
+            android:padding="0dp">
 
 
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="0dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="40dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="80dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="120dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="160dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="200dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="240dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="280dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="320dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="360dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="400dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="440dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="480dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="520dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="560dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="600dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="640dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="680dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="720dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="760dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="800dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="840dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="880dp"/>
-            <View android:background="#aaa" android:layout_width = "fill_parent" android:layout_height="1dp" android:layout_marginTop="920dp"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="0dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="40dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="80dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="120dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="160dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="200dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="240dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="280dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="320dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="360dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="400dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="440dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="480dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="520dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="560dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="600dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="640dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="680dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="720dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="760dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="800dp"
+                android:background="#aaa" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="840dp"
+                android:background="#aaa" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="0dp" >
+                android:padding="0dp">
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:padding="0dp" >
+                    android:padding="0dp">
 
-                    <View android:background="#aaa" android:layout_width = "1dp" android:layout_height="fill_parent" android:layout_alignParentRight="true"/>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="#aaa" />
 
                     <TextView
                         android:id="@+id/heure8"
@@ -317,22 +464,22 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="14"
-                    android:padding="0dp" >
+                    android:padding="0dp">
 
                     <LinearLayout
                         android:id="@+id/linearLayout3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:padding="0dp" >
+                        android:layout_alignParentRight="true"
+                        android:padding="0dp">
 
                         <RelativeLayout
                             android:id="@+id/relativeLayout4"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1" >
+                            android:layout_weight="1">
 
                         </RelativeLayout>
 
@@ -340,7 +487,7 @@
                             android:id="@+id/relativeLayout5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1" >
+                            android:layout_weight="1">
 
                         </RelativeLayout>
 
@@ -348,7 +495,7 @@
                             android:id="@+id/relativeLayout6"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1" >
+                            android:layout_weight="1">
 
                         </RelativeLayout>
 
@@ -356,7 +503,7 @@
                             android:id="@+id/relativeLayout7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1" >
+                            android:layout_weight="1">
 
                         </RelativeLayout>
 
@@ -364,7 +511,7 @@
                             android:id="@+id/relativeLayout8"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1" >
+                            android:layout_weight="1">
 
                         </RelativeLayout>
 
@@ -372,7 +519,7 @@
                             android:id="@+id/relativeLayout9"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1" >
+                            android:layout_weight="1">
 
                         </RelativeLayout>
 
@@ -380,16 +527,7 @@
                             android:id="@+id/relativeLayout10"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1" >
-
-                            <View android:background="#00f" android:layout_width = "fill_parent" android:layout_height="180dp" android:layout_marginTop="340dp"/>
-
-                            <Button
-                                android:id="@+id/button1"
-                                android:layout_width="fill_parent"
-                                android:layout_height="180dp"
-                                android:layout_marginTop="340dp"
-                                android:text="Some Event" />
+                            android:layout_weight="1">
 
                         </RelativeLayout>
 

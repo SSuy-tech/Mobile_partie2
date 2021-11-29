@@ -132,6 +132,18 @@ public class MainActivity extends AppCompatActivity {
         mEditStage.launch(intent);
     }
 
+    public void buttonClicked(View view){
+        if(view.getId() == R.id.boutonListe){
+            setContentView(R.layout.activity_main);
+        } else if(view.getId() == R.id.boutonCarte){
+            setContentView(R.layout.activity_maps);
+        } else if(view.getId() == R.id.boutonCalendrier){
+            setContentView(R.layout.activity_schedule);
+        } else {
+            setContentView(R.layout.activity_main);
+        }
+    }
+
 
     /**
      * édition du contact
