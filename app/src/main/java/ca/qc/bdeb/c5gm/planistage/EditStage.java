@@ -170,6 +170,10 @@ public class EditStage extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Fait un pop-up qui permet l'utilisateur de choisir un temps pour le stage de l'étudiant
+     * @param view
+     */
     public void timePickerStage(View view) {
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -183,6 +187,11 @@ public class EditStage extends AppCompatActivity {
         timePickerDialog.setTitle("Temps?");
         timePickerDialog.show();
     }
+
+    /**
+     * Crée un pop-up qui permet l'utilisateur de choisir un temps pour le stage d'un étudiant
+     * @param view
+     */
     public void timePickerDiner(View view){
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override

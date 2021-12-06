@@ -15,4 +15,11 @@
     <string name="once">1 fois</string>
     <string name="twice">2 fois</string>
     <string name="thrice">3 fois</string>
+    <string name="dispo">Disponibilités du tuteur de stage</string>
+    <string name="merAM">Mercredi AM</string>
+    <string name="merPM">Mercredi PM</string>
+    <string name="jeuAM">Jeudi AM</string>
+    <string name="jeuPM">Jeudi PM</string>
+    <string name="venAM">Vencredi AM</string>
+    <string name="venPM">Vendredi PM</string>
 </resources>
