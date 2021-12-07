@@ -19,13 +19,19 @@ public class Stage implements Comparable, Parcelable {
     private boolean[][]jourdeDispoTuteur;
 
 
-    public Stage(Compte etudiant, Compte prof, Entreprise entreprise, String annee, Priorite priorite) {
+    public Stage(Compte etudiant, Compte prof, Entreprise entreprise, String annee,
+                 Priorite priorite,String timeDiner,String timeStage, boolean[]jourdeStage,int visite,boolean[][]jourdeDispoTuteur) {
         this.id = UUID.randomUUID();
         this.etudiant = etudiant;
         this.prof = prof;
         this.entreprise = entreprise;
         this.annee = annee;
         this.priorite = priorite;
+        this.timeDiner=timeDiner;
+        this.timeStage=timeStage;
+        this.jourdeStage=jourdeStage;
+        this.visite=visite;
+        this.jourdeDispoTuteur=jourdeDispoTuteur;
     }
 
     public Stage(UUID id, Compte etudiant, Compte prof, Entreprise entreprise, String annee, Priorite priorite) {
@@ -35,6 +41,11 @@ public class Stage implements Comparable, Parcelable {
         this.entreprise = entreprise;
         this.annee = annee;
         this.priorite = priorite;
+        this.timeDiner=timeDiner;
+        this.timeStage=timeStage;
+        this.jourdeStage=jourdeStage;
+        this.visite=visite;
+        this.jourdeDispoTuteur=jourdeDispoTuteur;
     }
 
 
