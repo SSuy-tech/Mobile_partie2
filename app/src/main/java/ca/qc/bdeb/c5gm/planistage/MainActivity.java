@@ -134,13 +134,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonClicked(View view){
         if(view.getId() == R.id.boutonListe){
-            setContentView(R.layout.activity_main);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+
         } else if(view.getId() == R.id.boutonCarte){
-            setContentView(R.layout.activity_maps);
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
+
         } else if(view.getId() == R.id.boutonCalendrier){
-            setContentView(R.layout.activity_schedule);
+            Intent intent = new Intent(this, CalendarActivity.class);
+            startActivity(intent);
+
         } else {
-            setContentView(R.layout.activity_main);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
     }
 

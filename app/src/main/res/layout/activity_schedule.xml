@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="800dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:context=".CalendarActivity">
 
     <TextView
         android:id="@+id/titre"
@@ -12,40 +14,15 @@
         android:text="Horaire"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="400dp"
-            android:layout_height="48dp"
-            android:layout_alignParentTop="true">
-
-            <ImageView
-                android:id="@+id/boutonListe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="buttonClicked"
-                app:srcCompat="@drawable/bouton_liste" />
-
-            <ImageView
-                android:id="@+id/boutonCarte"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="buttonClicked"
-                app:srcCompat="@drawable/bouton_carte" />
-
-            <ImageView
-                android:id="@+id/boutonCalendrier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="buttonClicked"
-                app:srcCompat="@drawable/bouton_calendrier" />
-        </LinearLayout>
-    </RelativeLayout>
+    <include
+        android:id="@+id/menu"
+        layout="@layout/menu_navigation"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -66,30 +43,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="" />
-
-            <TextView
-                android:id="@+id/jourDimanche"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="Dimanche" />
-
-            <TextView
-                android:id="@+id/jourLundi"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="Lundi" />
-
-            <TextView
-                android:id="@+id/jourMardi"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="Mardi" />
 
             <TextView
                 android:id="@+id/jourMercredi"
@@ -115,13 +68,6 @@
                 android:gravity="center"
                 android:text="Vendredi" />
 
-            <TextView
-                android:id="@+id/JourSamedi"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="Samedi" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -279,7 +225,7 @@
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout2"
-                    android:layout_width="0dp"
+                    android:layout_width="19dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:padding="0dp">
