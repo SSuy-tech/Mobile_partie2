@@ -84,7 +84,8 @@ public class EditStage extends AppCompatActivity {
             prof = stage.getProf();
         } else {
             listeEleves = db.getLesElevesSansStage();
-            stage = new Stage(eleveSeletion, prof, entrepriseSeletion, StageUtils.getAnnee(), Priorite.BASSE);
+            stage = new Stage(eleveSeletion, prof, entrepriseSeletion, StageUtils.getAnnee(),
+                    Priorite.BASSE,"00:00","00:00",null,0,null);
         }
 
         listeEntreprises = db.getToutesLesEntreprises();
