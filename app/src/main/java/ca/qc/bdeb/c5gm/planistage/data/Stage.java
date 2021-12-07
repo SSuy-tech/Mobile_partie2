@@ -12,6 +12,12 @@ public class Stage implements Comparable, Parcelable {
     private Entreprise entreprise;
     private String annee;
     private Priorite priorite = Priorite.BASSE;
+    private String timeDiner;
+    private String timeStage;
+    private boolean[]jourdeStage;
+    private int visite;
+    private boolean[][]jourdeDispoTuteur;
+
 
     public Stage(Compte etudiant, Compte prof, Entreprise entreprise, String annee, Priorite priorite) {
         this.id = UUID.randomUUID();

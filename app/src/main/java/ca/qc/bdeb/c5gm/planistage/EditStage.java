@@ -50,9 +50,13 @@ public class EditStage extends AppCompatActivity {
     private TextView tvProvince;
     private TextView tvCodePostal;
 
+    //Values to add in stagedb
     private Button timePickStage;
     private Button timePickDiner;
     private int hourS, minuteS;
+    private Boolean[] jdStages;
+    private int visite;
+    private boolean[][]jdDisponibTuteur;
 
 
     @Override
@@ -98,6 +102,7 @@ public class EditStage extends AppCompatActivity {
         tvProvince = findViewById(R.id.provinceView);
         // spinner élèves
         eleveSp = findViewById(R.id.eleve_spinner);
+
         //Buttons
         timePickStage = findViewById(R.id.buttonHStage);
         timePickDiner = findViewById(R.id.buttonHDiner);
