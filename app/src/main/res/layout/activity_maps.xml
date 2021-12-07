@@ -21,44 +21,18 @@
         android:id="@+id/include"
         layout="@layout/flag_selection"
         android:layout_width="0dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="400dp"
-        android:layout_height="48dp"
-        android:layout_alignParentTop="true"
-        app:layout_constraintBottom_toTopOf="@+id/map"
+    <include
+        android:id="@+id/menu"
+        layout="@layout/menu_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include">
-
-        <ImageView
-            android:id="@+id/boutonListe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="buttonClicked"
-            app:srcCompat="@drawable/bouton_liste" />
-
-        <ImageView
-            android:id="@+id/boutonCarte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="buttonClicked"
-            app:srcCompat="@drawable/bouton_carte" />
-
-        <ImageView
-            android:id="@+id/boutonCalendrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="buttonClicked"
-            app:srcCompat="@drawable/bouton_calendrier" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
