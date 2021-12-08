@@ -8,6 +8,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -28,6 +29,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.SuccessContinuation;
+import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,10 +50,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FusedLocationProviderClient fusedLocationClient;
     private ArrayList<Stage> stages = null;
     private ArrayList<Marker> reperes = null;
-
+    private LatLng position;
     // Demander la permission d'activer la localisation
     private boolean isLocationEnabled = false;
     private String[] permissions = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
+    private FusedLocationProviderClient client;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -65,6 +69,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        db= db.getInstance(this);
+        stages=db.getTousLesStages();
 
         super.onCreate(savedInstanceState);
 
@@ -74,16 +80,79 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+        client= LocationServices.getFusedLocationProviderClient(this);
         mapFragment.getMapAsync(this);
+
+        if(ActivityCompat.checkSelfPermission(MapsActivity.this,Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED) {
+            getCurrentLocation();
+        };
 
         ((ImageView)findViewById(R.id.iv_priorite_basse)).setImageResource(R.drawable.ic_green_flag_24);
         ((ImageView)findViewById(R.id.iv_priorite_moyenne)).setImageResource(R.drawable.ic_yellow_flag_24);
         ((ImageView)findViewById(R.id.iv_priorite_haute)).setImageResource(R.drawable.ic_red_flag_24);
 
+        for (int i = 0; i < stages.size(); i++) {
+            addmarkers(stages.get(i));
+        }
+
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         initData();
+    }
+
+    private void getCurrentLocation() {
+        @SuppressLint("MissingPermission") Task<Location> task = client.getLastLocation();
+        task.addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if(location!=null){
+                    LatLng latLng= new LatLng(location.getLatitude(),location.getLongitude());
+                }
+            }
+        });
+    }
+
+    private void addmarkers(Stage stage) {
+        position = getLocationFromAddress(stage.getEntreprise().getAdresseComplete());
+        mMap.addMarker(new MarkerOptions().position(position).title(stage.getEtudiant().toString())
+        .snippet("Stage"));//.icon(BitmapDescriptorFactory.defaultMarker()));
+    }
+
+    /**
+     * Code pris de: https://stackoverflow.com/questions/42626735/geocoding-converting-an-address-in-string-form-into-latlng-in-googlemaps-jav
+     * @param inputtedAddress
+     * @return
+     */
+    public LatLng getLocationFromAddress(String inputtedAddress) {
+
+        Geocoder coder = new Geocoder(this);
+        List<Address> address;
+        LatLng resLatLng = null;
+
+        try {
+            // May throw an IOException
+            address = coder.getFromLocationName(inputtedAddress, 5);
+            if (address == null) {
+                return null;
+            }
+
+            if (address.size() == 0) {
+                return null;
+            }
+
+            Address location = address.get(0);
+            location.getLatitude();
+            location.getLongitude();
+
+            resLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+        }
+
+        return resLatLng;
     }
 
     private void initData() {
@@ -163,7 +232,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         LatLng maLocation = new LatLng(currLocation.getLatitude(), currLocation.getLongitude());
 
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(maLocation, 12));
-
                     }
                 }
             });
