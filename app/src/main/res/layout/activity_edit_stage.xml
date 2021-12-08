@@ -315,26 +315,27 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/radioButton7"
+                    <CheckBox
+                        android:id="@+id/MercAm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/merAM" />
 
-                    <RadioButton
-                        android:id="@+id/radioButton8"
+                    <CheckBox
+                        android:id="@+id/JeuAm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/jeuAM" />
 
-                    <RadioButton
-                        android:id="@+id/radioButton9"
+                    <CheckBox
+                        android:id="@+id/VenAm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/venAM" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -342,26 +343,27 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/radioButton6"
+                    <CheckBox
+                        android:id="@+id/MercPm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/merPM" />
 
-                    <RadioButton
-                        android:id="@+id/radioButton5"
+                    <CheckBox
+                        android:id="@+id/JeuPm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/jeuPM" />
 
-                    <RadioButton
-                        android:id="@+id/radioButton4"
+                    <CheckBox
+                        android:id="@+id/VenPm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/venPM" />
+
                 </LinearLayout>
             </LinearLayout>
 

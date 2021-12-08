@@ -67,6 +67,7 @@ public class EditStage extends AppCompatActivity {
     private RadioButton twice;
     private RadioButton thrice;
     private boolean[][]jdDisponibTuteur;
+    private CheckBox merAm,merPm,jeuAm,jeuPm,venAm,venPm;
 
 
     @Override
@@ -121,10 +122,18 @@ public class EditStage extends AppCompatActivity {
         Mercredi=findViewById(R.id.MercrediCheckbox);
         Jeudi=findViewById(R.id.JeudiCheckbox);
         Vendredi=findViewById(R.id.VendrediCheckbox);
+        //Les radio buttons pour le nombre de visite
         once=findViewById(R.id.RadioButtonOnce);
         once.setChecked(true);
         twice=findViewById(R.id.RadioButtonTwice);
         thrice=findViewById(R.id.RadioButtonThrice);
+        //Temps de disponibilités
+        merAm=findViewById(R.id.MercAm);
+        merPm=findViewById(R.id.MercPm);
+        jeuAm=findViewById(R.id.JeuAm);
+        jeuPm=findViewById(R.id.JeuPm);
+        venAm=findViewById(R.id.VenAm);
+        venPm=findViewById(R.id.VenPm);
 
         eleveAdapter = new ArrayAdapter<Compte>(
                 this, android.R.layout.simple_spinner_item, listeEleves);
@@ -187,26 +196,12 @@ public class EditStage extends AppCompatActivity {
         stage.setEntreprise(entrepriseSeletion);
         stage.setEtudiant(eleveSeletion);
 
-        if(Mercredi.isChecked()){
-            jdStages[0]=true;
-        }else{
-            jdStages[0]=false;
-        }
-        if(Jeudi.isChecked()){
-            jdStages[1]=true;
-        }else{
-            jdStages[1]=false;
-        }
-        if(Vendredi.isChecked()){
-            jdStages[2]=true;
-        }
-        else{
-            jdStages[2]=false;
-        }
         stage.setJourdeStage(jdStages);
         stage.setTimeStage(timePickStage.getText().toString());
         stage.setTimeDiner(timePickDiner.getText().toString());
         stage.setVisite(visite);
+        ajouterDispo();
+        stage.setJourdeDispoTuteur(jdDisponibTuteur);
         
         Intent intentMessage = new Intent();
         intentMessage.putExtra(MainActivity.EXTRA_STAGE_RESULT, stage);
@@ -214,6 +209,45 @@ public class EditStage extends AppCompatActivity {
         setResult(RESULT_OK, intentMessage);
 
         finish();
+    }
+
+    /**
+     * Mets les checkbox de l'utilisateur dans un tableau pour l'inserer dans la classe Stage
+     */
+    private void ajouterDispo() {
+        //Position 0 =mercredi
+        if(merAm.isChecked()){
+            jdDisponibTuteur[0][0]=true;
+        }else{
+            jdDisponibTuteur[0][0]=false;
+        }
+        if(merPm.isChecked()){
+            jdDisponibTuteur[0][1]=true;
+        }else{
+            jdDisponibTuteur[0][1]=false;
+        }
+        //Position 1= jeudi
+        if(jeuAm.isChecked()){
+            jdDisponibTuteur[1][0]=true;
+        }else{
+            jdDisponibTuteur[1][0]=false;
+        }
+        if(jeuPm.isChecked()){
+            jdDisponibTuteur[1][1]=true;
+        }else{
+            jdDisponibTuteur[1][1]=false;
+        }
+        //Position 2= vendredi
+        if(venAm.isChecked()){
+            jdDisponibTuteur[2][0]=true;
+        }else{
+            jdDisponibTuteur[2][0]=false;
+        }
+        if(venPm.isChecked()){
+            jdDisponibTuteur[2][1]=true;
+        }else{
+            jdDisponibTuteur[2][1]=false;
+        }
     }
 
     /**
