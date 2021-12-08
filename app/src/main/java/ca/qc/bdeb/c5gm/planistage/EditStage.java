@@ -290,21 +290,21 @@ public class EditStage extends AppCompatActivity {
         if(once.isChecked()){
             twice.setChecked(false);
             thrice.setChecked(false);
-            visite=1;
+            visite=30;
         }
     }
     public void checkboxSwitcher2(View view){
         if(twice.isChecked()){
             once.setChecked(false);
             thrice.setChecked(false);
-            visite=2;
+            visite=45;
         }
     }
     public void checkboxSwitcher3(View view){
         if(thrice.isChecked()){
             once.setChecked(false);
             twice.setChecked(false);
-            visite=3;
+            visite=60;
         }
     }
 }

@@ -12,9 +12,9 @@
     <string name="HoraireStage">Horaire de Stage</string>
     <string name="HoraireDiner">Horaire de Diner</string>
     <string name="frequenceVisites">Fréquences des visites (par semaine)</string>
-    <string name="once">1 fois</string>
-    <string name="twice">2 fois</string>
-    <string name="thrice">3 fois</string>
+    <string name="once">30 Minutes</string>
+    <string name="twice">45 minutes</string>
+    <string name="thrice">1 heure</string>
     <string name="dispo">Disponibilités du tuteur de stage</string>
     <string name="merAM">Mercredi AM</string>
     <string name="merPM">Mercredi PM</string>
