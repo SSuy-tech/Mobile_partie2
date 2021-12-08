@@ -39,9 +39,9 @@ public class CalendarActivity extends Activity {
     }
     private void initWidgets()
     {
-        monthDayText = findViewById(R.id.monthDayText);
-        dayOfWeekTV = findViewById(R.id.dayOfWeekTV);
-        hourListView = findViewById(R.id.hourListView);
+        //monthDayText = findViewById(R.id.monthDayText);
+        //dayOfWeekTV = findViewById(R.id.dayOfWeekTV);
+        //hourListView = findViewById(R.id.hourListView);
     }
     public void addmeetings(Stage S){
         dispo=S.getJourdeDispoTuteur();
