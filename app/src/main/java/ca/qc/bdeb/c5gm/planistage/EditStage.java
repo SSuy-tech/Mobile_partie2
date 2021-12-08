@@ -202,7 +202,7 @@ public class EditStage extends AppCompatActivity {
         stage.setVisite(visite);
         ajouterDispo();
         stage.setJourdeDispoTuteur(jdDisponibTuteur);
-        
+
         Intent intentMessage = new Intent();
         intentMessage.putExtra(MainActivity.EXTRA_STAGE_RESULT, stage);
         intentMessage.putExtra(MainActivity.EXTRA_POSITION, position);

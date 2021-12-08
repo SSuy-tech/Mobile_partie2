@@ -9,13 +9,14 @@
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="324dp"
+        android:layout_height="343dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu"
-        app:layout_constraintVertical_bias="0.204" />
+        app:layout_constraintVertical_bias="0.151" />
 
     <include
         android:id="@+id/include"
@@ -31,7 +32,9 @@
         layout="@layout/menu_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include" />
 

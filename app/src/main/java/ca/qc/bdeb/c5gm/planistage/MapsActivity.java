@@ -25,6 +25,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -174,7 +175,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        ActivityCompat.requestPermissions(this, permissions, LOCATION_REQUEST_CODE);
+        /**
+         * Repositionnement de la carte au marqueur sur Bois-de-Boulogne lors du demarrage
+         */
+        LatLng positionBdeB = new LatLng(45.5380, -73.6760);
+        mMap.addMarker(new MarkerOptions()
+                .position(positionBdeB)
+                .title("Collège de Bois-de-Boulogne")
+                .snippet("Établissement des étudiants et des enseignants"));
+
+        CameraPosition positionInitialle = new CameraPosition.Builder()
+                .target(positionBdeB)
+                .zoom(10)
+                .build();
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(positionInitialle));
 
         placerLesReperes();
 
