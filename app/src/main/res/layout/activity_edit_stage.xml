@@ -190,21 +190,21 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/checkBox4"
+                        android:id="@+id/MercrediCheckbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/wednesday" />
 
                     <CheckBox
-                        android:id="@+id/checkBox2"
+                        android:id="@+id/JeudiCheckbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/thursday" />
 
                     <CheckBox
-                        android:id="@+id/checkBox"
+                        android:id="@+id/VendrediCheckbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -267,24 +267,27 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radioButton3"
+                        android:id="@+id/RadioButtonOnce"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="checkboxSwitcher1"
                         android:text="@string/once" />
 
                     <RadioButton
-                        android:id="@+id/radioButton2"
+                        android:id="@+id/RadioButtonTwice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="checkboxSwitcher2"
                         android:text="@string/twice" />
 
                     <RadioButton
-                        android:id="@+id/radioButton"
+                        android:id="@+id/RadioButtonThrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="checkboxSwitcher3"
                         android:text="@string/thrice" />
 
                 </LinearLayout>

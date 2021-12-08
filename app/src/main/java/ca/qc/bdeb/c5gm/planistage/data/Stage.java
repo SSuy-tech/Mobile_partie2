@@ -41,11 +41,6 @@ public class Stage implements Comparable, Parcelable {
         this.entreprise = entreprise;
         this.annee = annee;
         this.priorite = priorite;
-        this.timeDiner=timeDiner;
-        this.timeStage=timeStage;
-        this.jourdeStage=jourdeStage;
-        this.visite=visite;
-        this.jourdeDispoTuteur=jourdeDispoTuteur;
     }
 
 
@@ -124,6 +119,28 @@ public class Stage implements Comparable, Parcelable {
     public void setPriorite(Priorite priorite) {
         this.priorite = priorite;
     }
+
+    //Ajout de tous les getters et les setters pour les nouvelles variables
+    //Get et set pour le Temps de diner
+    public void setTimeDiner (String timeDiner){ this.timeDiner=timeDiner; };
+    public String getTimeDiner(){ return timeDiner; }
+
+    //Get et set pour le Temps de Stage
+    public void setTimeStage (String timeStage){ this.timeDiner=timeDiner; };
+    public String getTimeStage(){ return timeStage; }
+
+    //get et set pour les jours de Stage
+    public boolean[] getJourdeStage() { return jourdeStage; }
+    public void setJourdeStage(boolean[] jourdeStage) { this.jourdeStage = jourdeStage; }
+
+    //Get et set pour le nombre de visite
+    public int getVisite(){ return visite; }
+    public void setVisite(int visite){ this.visite=visite; }
+
+    //Get et set pour les jours de disponibilités pour le tuteur
+    public boolean[][] getJourdeDispoTuteur() { return jourdeDispoTuteur; }
+    public void setJourdeDispoTuteur(boolean[][] jourdeDispoTuteur) { this.jourdeDispoTuteur = jourdeDispoTuteur; }
+
 
     @Override
     public int compareTo(Object o) {

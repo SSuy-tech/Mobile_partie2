@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -52,10 +54,18 @@ public class EditStage extends AppCompatActivity {
 
     //Values to add in stagedb
     private Button timePickStage;
+    private String SPickStage;
     private Button timePickDiner;
+    private String SPickDiner;
     private int hourS, minuteS;
-    private Boolean[] jdStages;
+    private CheckBox Mercredi;
+    private CheckBox Jeudi;
+    private CheckBox Vendredi;
+    private boolean[] jdStages;
     private int visite;
+    private RadioButton once;
+    private RadioButton twice;
+    private RadioButton thrice;
     private boolean[][]jdDisponibTuteur;
 
 
@@ -107,6 +117,15 @@ public class EditStage extends AppCompatActivity {
         //Buttons
         timePickStage = findViewById(R.id.buttonHStage);
         timePickDiner = findViewById(R.id.buttonHDiner);
+
+        Mercredi=findViewById(R.id.MercrediCheckbox);
+        Jeudi=findViewById(R.id.JeudiCheckbox);
+        Vendredi=findViewById(R.id.VendrediCheckbox);
+        once=findViewById(R.id.RadioButtonOnce);
+        once.setChecked(true);
+        twice=findViewById(R.id.RadioButtonTwice);
+        thrice=findViewById(R.id.RadioButtonThrice);
+
         eleveAdapter = new ArrayAdapter<Compte>(
                 this, android.R.layout.simple_spinner_item, listeEleves);
         eleveAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -168,6 +187,27 @@ public class EditStage extends AppCompatActivity {
         stage.setEntreprise(entrepriseSeletion);
         stage.setEtudiant(eleveSeletion);
 
+        if(Mercredi.isChecked()){
+            jdStages[0]=true;
+        }else{
+            jdStages[0]=false;
+        }
+        if(Jeudi.isChecked()){
+            jdStages[1]=true;
+        }else{
+            jdStages[1]=false;
+        }
+        if(Vendredi.isChecked()){
+            jdStages[2]=true;
+        }
+        else{
+            jdStages[2]=false;
+        }
+        stage.setJourdeStage(jdStages);
+        stage.setTimeStage(timePickStage.getText().toString());
+        stage.setTimeDiner(timePickDiner.getText().toString());
+        stage.setVisite(visite);
+        
         Intent intentMessage = new Intent();
         intentMessage.putExtra(MainActivity.EXTRA_STAGE_RESULT, stage);
         intentMessage.putExtra(MainActivity.EXTRA_POSITION, position);
@@ -210,5 +250,27 @@ public class EditStage extends AppCompatActivity {
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hourS, minuteS, true);
         timePickerDialog.setTitle("Temps?");
         timePickerDialog.show();
+    }
+
+    public void checkboxSwitcher1(View view){
+        if(once.isChecked()){
+            twice.setChecked(false);
+            thrice.setChecked(false);
+            visite=1;
+        }
+    }
+    public void checkboxSwitcher2(View view){
+        if(twice.isChecked()){
+            once.setChecked(false);
+            thrice.setChecked(false);
+            visite=2;
+        }
+    }
+    public void checkboxSwitcher3(View view){
+        if(thrice.isChecked()){
+            once.setChecked(false);
+            twice.setChecked(false);
+            visite=3;
+        }
     }
 }
