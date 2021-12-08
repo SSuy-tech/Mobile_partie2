@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -89,18 +90,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         db = StageDB.getInstance(getApplicationContext());
         stages = db.getTousLesStagesSansPhoto();
         reperes = new ArrayList<>();
-    }
-
-    public void buttonClicked(View view){
-        if(view.getId() == R.id.boutonListe){
-            setContentView(R.layout.activity_main);
-        } else if(view.getId() == R.id.boutonCarte){
-            setContentView(R.layout.activity_maps);
-        } else if(view.getId() == R.id.boutonCalendrier){
-            setContentView(R.layout.activity_schedule);
-        } else {
-            setContentView(R.layout.activity_main);
-        }
     }
 
     /**
