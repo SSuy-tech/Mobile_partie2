@@ -28,7 +28,6 @@ public class CalendarActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_horaire);
         //10heures * 4 quart de session de 15 minutes 40
         meetingTimes=new boolean[3][40];
         initWidgets();
@@ -54,7 +53,7 @@ public class CalendarActivity extends Activity {
                 if(dispo[j][0]||dispo[j][1]){
                     //trouve un disponibilité
                     for (int x = 0; x < S.getVisite()/4; x++) {
-                        if(meetingTimes[j][])
+                        //if(meetingTimes[j][])
                     }
                 }
             }

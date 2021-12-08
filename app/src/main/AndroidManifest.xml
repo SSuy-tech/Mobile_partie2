@@ -45,7 +45,7 @@
             android:name=".EditStage"
             android:exported="true" />
         <activity
-            android:name=".CalendarActivity"
+            android:name=".WeekActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
         } else if(view.getId() == R.id.boutonCalendrier){
-            Intent intent = new Intent(this, CalendarActivity.class);
+            Intent intent = new Intent(this, WeekActivity.class);
             startActivity(intent);
 
         } else {
