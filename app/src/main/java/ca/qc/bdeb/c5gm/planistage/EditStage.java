@@ -74,7 +74,7 @@ public class EditStage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_stage);
-
+        jdDisponibTuteur=new boolean[3][2];
         initData();
 
         initViews();

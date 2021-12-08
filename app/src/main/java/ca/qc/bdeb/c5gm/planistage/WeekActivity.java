@@ -14,16 +14,22 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import ca.qc.bdeb.c5gm.planistage.data.Stage;
+import ca.qc.bdeb.c5gm.planistage.data.StageDB;
+
 public class WeekActivity extends AppCompatActivity {
 
     private WeekView mWeekView;
     private int i=0;
+    private StageDB DB;
+    private ArrayList<Stage> Stages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
-
+        DB.getInstance(this);
+        Stages=DB.getTousLesStages();
         // Get a reference for the week view in the layout.
         mWeekView = findViewById(R.id.weekView);
 
@@ -60,10 +66,16 @@ public class WeekActivity extends AppCompatActivity {
                     WeekViewEvent event = new WeekViewEvent(0, "Epoca", startTime, endTime);
                     event.setColor(R.color.orange);
                     events.add(event);
+                    
+                    addAllMeetings();
                     i++;
                 }
 
                 return events;
+            }
+
+            private void addAllMeetings() {
+
             }
         });
 
