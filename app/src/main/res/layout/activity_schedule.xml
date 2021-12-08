@@ -412,7 +412,7 @@
                         android:padding="0dp">
 
                         <RelativeLayout
-                            android:id="@+id/relativeLayout4"
+                            android:id="@+id/rangeeMercredi"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -420,7 +420,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
-                            android:id="@+id/relativeLayout5"
+                            android:id="@+id/rangeeJeudi"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
@@ -428,7 +428,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
-                            android:id="@+id/relativeLayout6"
+                            android:id="@+id/rangeeVendredi"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
