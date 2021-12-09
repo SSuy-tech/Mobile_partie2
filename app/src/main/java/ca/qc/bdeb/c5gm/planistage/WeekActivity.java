@@ -28,7 +28,8 @@ public class WeekActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
-        DB.getInstance(this);
+        Stages=new ArrayList<Stage>();
+        DB=DB.getInstance(this);
         Stages=DB.getTousLesStages();
         // Get a reference for the week view in the layout.
         mWeekView = findViewById(R.id.weekView);
@@ -47,35 +48,36 @@ public class WeekActivity extends AppCompatActivity {
             public List<WeekViewEvent> onMonthChange(int newYear, int newMonth) {
                 // Populate the week view with some events.
                 // List<WeekViewEvent> events = getEvents(newYear, newMonth);
-
+                // Code pris du git de alamkanak
                 List<WeekViewEvent> events = new ArrayList<WeekViewEvent>();
-                //Pour que les noms se montrent une fois
+                //Pour que les noms se montrent une fois on fait un if statement
                 if(i<1){
+                    events = addAllMeetings(events);
+                    i++;
+                }
+                return events;
+            }
+
+            private List<WeekViewEvent> addAllMeetings(List<WeekViewEvent> events) {
+                for (int i = 0; i < Stages.size(); i++) {
                     Calendar startTime = Calendar.getInstance();
-                    startTime.set(Calendar.DAY_OF_MONTH, 1);
+                    startTime.set(Calendar.DAY_OF_MONTH, i);
                     startTime.set(Calendar.HOUR_OF_DAY, 1);
                     startTime.set(Calendar.MINUTE, 0);
-                    startTime.set(Calendar.MONTH, 11);//0 = january
+                    startTime.set(Calendar.MONTH, 11);//0 = january 11=december
                     startTime.set(Calendar.YEAR, 2021);
                     Calendar endTime = (Calendar) startTime.clone();
-                    endTime.set(Calendar.DAY_OF_MONTH, 1);
+                    endTime.set(Calendar.DAY_OF_MONTH, i);
                     endTime.set(Calendar.HOUR_OF_DAY, 5);
                     endTime.set(Calendar.MINUTE, 0);
                     endTime.set(Calendar.MONTH, 11);
                     endTime.set(Calendar.YEAR, 2021);
-                    WeekViewEvent event = new WeekViewEvent(0, "Epoca", startTime, endTime);
+
+                    WeekViewEvent event = new WeekViewEvent(0, Stages.get(i).getEtudiant().toString(), startTime, endTime);
                     event.setColor(R.color.orange);
                     events.add(event);
-                    
-                    addAllMeetings();
-                    i++;
                 }
-
-                return events;
-            }
-
-            private void addAllMeetings() {
-
+                return  events;
             }
         });
 
