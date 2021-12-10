@@ -115,9 +115,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void addmarkers(Stage stage) {
+        String TAG = "";
         position = getLocationFromAddress(stage.getEntreprise().getAdresseComplete());
-        mMap.addMarker(new MarkerOptions().position(position).title(stage.getEtudiant().toString())
-        .snippet("Stage"));//.icon(BitmapDescriptorFactory.defaultMarker()));
+        Log.e(TAG, "addmarkers: "+position);
     }
 
     /**
