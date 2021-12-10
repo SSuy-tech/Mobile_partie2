@@ -454,11 +454,13 @@ public class StageDB extends SQLiteOpenHelper {
         values2.put(TblVisite.DUREE,stage.getVisite());
         values2.put(TblVisite.HEURE_DEBUT,stage.getTimeStage());
 
-
+        db.insert(TblVisite._NAME,null,values2);
         //Vérifie si les inserts marchent
-        return db.insert(TblStage._NAME, null, values) == 1
-                &&
-                db.insert(TblVisite._NAME,null,values2)==1;
+        ArrayList<Stage> toustages=new ArrayList<Stage>();
+        toustages = getTousLesStages();
+
+        return db.insert(TblStage._NAME, null, values) == toustages.size()+1
+        && db.insert(TblVisite._NAME,null,values2)== toustages.size()+1;
     }
 
     public void modifierImageEleve( Compte eleve ) {

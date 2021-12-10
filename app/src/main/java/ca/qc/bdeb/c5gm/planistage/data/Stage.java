@@ -16,11 +16,11 @@ public class Stage implements Comparable, Parcelable {
     private String timeStage;
     private boolean[]jourdeStage;
     private int visite;
-    private boolean[][]jourdeDispoTuteur;
+    private int heureDebut;
 
 
     public Stage(Compte etudiant, Compte prof, Entreprise entreprise, String annee,
-                 Priorite priorite,String timeDiner,String timeStage, boolean[]jourdeStage,int visite,boolean[][]jourdeDispoTuteur) {
+                 Priorite priorite,String timeDiner,String timeStage, boolean[]jourdeStage,int visite,int heureDebut) {
         this.id = UUID.randomUUID();
         this.etudiant = etudiant;
         this.prof = prof;
@@ -31,7 +31,7 @@ public class Stage implements Comparable, Parcelable {
         this.timeStage=timeStage;
         this.jourdeStage=jourdeStage;
         this.visite=visite;
-        this.jourdeDispoTuteur=jourdeDispoTuteur;
+        this.heureDebut=heureDebut;
     }
 
     public Stage(UUID id, Compte etudiant, Compte prof, Entreprise entreprise, String annee, Priorite priorite) {
@@ -137,9 +137,9 @@ public class Stage implements Comparable, Parcelable {
     public int getVisite(){ return visite; }
     public void setVisite(int visite){ this.visite=visite; }
 
-    //Get et set pour les jours de disponibilités pour le tuteur
-    public boolean[][] getJourdeDispoTuteur() { return jourdeDispoTuteur; }
-    public void setJourdeDispoTuteur(boolean[][] jourdeDispoTuteur) { this.jourdeDispoTuteur = jourdeDispoTuteur; }
+    //Get et set pour l'heure de debut
+    public int getHeureDebut(){ return heureDebut; }
+    public void setHeureDebut(int heureDebut){ this.heureDebut=heureDebut; }
 
 
     @Override

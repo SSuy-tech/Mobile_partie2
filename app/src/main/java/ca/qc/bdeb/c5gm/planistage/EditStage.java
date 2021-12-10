@@ -68,6 +68,7 @@ public class EditStage extends AppCompatActivity {
     private RadioButton thrice;
     private boolean[][]jdDisponibTuteur;
     private CheckBox merAm,merPm,jeuAm,jeuPm,venAm,venPm;
+    private boolean[][] timeSlots = new boolean[3][600];
 
 
     @Override
@@ -96,7 +97,7 @@ public class EditStage extends AppCompatActivity {
         } else {
             listeEleves = db.getLesElevesSansStage();
             stage = new Stage(eleveSeletion, prof, entrepriseSeletion, StageUtils.getAnnee(),
-                    Priorite.BASSE,"0000","0000",null,0,null);
+                    Priorite.BASSE,"0000","0000",null,0,0);
         }
 
         listeEntreprises = db.getToutesLesEntreprises();
@@ -211,10 +212,18 @@ public class EditStage extends AppCompatActivity {
         }else{
             stage.setTimeStage("00");
         }
-
+        if(once.isChecked()){
+            visite=30;
+        }
+        if(twice.isChecked()){
+            visite=45;
+        }
+        if(thrice.isChecked()){
+            visite=60;
+        }
         stage.setVisite(visite);
-        ajouterDispo();
-        stage.setJourdeDispoTuteur(jdDisponibTuteur);
+        //ajouterDispo();
+
 
         Intent intentMessage = new Intent();
         intentMessage.putExtra(MainActivity.EXTRA_STAGE_RESULT, stage);
@@ -299,25 +308,50 @@ public class EditStage extends AppCompatActivity {
         timePickerDialog.show();
     }
 
+    /**
+     * Get TimeSlot
+     * @param view
+     */
+    public void pickTimeSlot(View view){
+        boolean picked;
+        boolean done=false;
+        for(int jours=0;jours<3 &&!done;jours++){//garde les jours entre mercredi et vendredi
+            for (int i = 0; i < timeSlots[jours].length &&!done; i++) {
+                picked=false;
+                if(jdDisponibTuteur[jours][i] == true && !done){
+                    for (int x = 0; x < visite; x++) {
+                        if(timeSlots[jours][x+i]==true&&!picked){
+                            picked=true;
+                        }
+                    }
+                    if(!picked){
+                        for (int x = 0; x < visite; x++) {
+                            timeSlots[jours][x+i]=true;
+                            done=true;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
     public void checkboxSwitcher1(View view){
         if(once.isChecked()){
             twice.setChecked(false);
             thrice.setChecked(false);
-            visite=30;
         }
     }
     public void checkboxSwitcher2(View view){
         if(twice.isChecked()){
             once.setChecked(false);
             thrice.setChecked(false);
-            visite=45;
         }
     }
     public void checkboxSwitcher3(View view){
         if(thrice.isChecked()){
             once.setChecked(false);
             twice.setChecked(false);
-            visite=60;
         }
     }
 }
