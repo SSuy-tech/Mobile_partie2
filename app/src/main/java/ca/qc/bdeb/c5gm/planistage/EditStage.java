@@ -333,7 +333,6 @@ public class EditStage extends AppCompatActivity {
                 }
             }
         }
-
     }
 
     public void checkboxSwitcher1(View view){

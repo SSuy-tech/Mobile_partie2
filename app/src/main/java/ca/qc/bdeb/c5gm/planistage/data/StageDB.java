@@ -451,10 +451,10 @@ public class StageDB extends SQLiteOpenHelper {
         ContentValues values2 = new ContentValues();
         values2.put(TblVisite._ID,stage.getId().toString());
         values2.put(TblVisite.STAGE_ID,UUID.randomUUID().toString());
-        values2.put(TblVisite.DUREE,stage.getVisite());
+        //values2.put(TblVisite.DUREE,stage.getVisite());
+        values2.put(TblVisite.DUREE,30);
         values2.put(TblVisite.HEURE_DEBUT,stage.getTimeStage());
 
-        db.insert(TblVisite._NAME,null,values2);
         //Vérifie si les inserts marchent
         ArrayList<Stage> toustages=new ArrayList<Stage>();
         toustages = getTousLesStages();
