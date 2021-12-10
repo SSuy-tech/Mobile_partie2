@@ -59,23 +59,27 @@ public class WeekActivity extends AppCompatActivity {
             }
 
             private List<WeekViewEvent> addAllMeetings(List<WeekViewEvent> events) {
-                for (int i = 0; i < Stages.size(); i++) {
-                    Calendar startTime = Calendar.getInstance();
-                    startTime.set(Calendar.DAY_OF_MONTH, i);
-                    startTime.set(Calendar.HOUR_OF_DAY, 1);
-                    startTime.set(Calendar.MINUTE, 0);
-                    startTime.set(Calendar.MONTH, 11);//0 = january 11=december
-                    startTime.set(Calendar.YEAR, 2021);
-                    Calendar endTime = (Calendar) startTime.clone();
-                    endTime.set(Calendar.DAY_OF_MONTH, i);
-                    endTime.set(Calendar.HOUR_OF_DAY, 5);
-                    endTime.set(Calendar.MINUTE, 0);
-                    endTime.set(Calendar.MONTH, 11);
-                    endTime.set(Calendar.YEAR, 2021);
 
-                    WeekViewEvent event = new WeekViewEvent(0, Stages.get(i).getEtudiant().toString(), startTime, endTime);
-                    event.setColor(R.color.orange);
-                    events.add(event);
+                for (int i = 0; i < Stages.size(); i++) {
+                    for(int x=0;x<10;x++){
+                        Calendar startTime = Calendar.getInstance();
+                        startTime.set(Calendar.DAY_OF_MONTH, 15+x*7);
+                        startTime.set(Calendar.HOUR_OF_DAY, 8+i);
+                        startTime.set(Calendar.MINUTE, 0);
+                        startTime.set(Calendar.MONTH, 11);//0 = january 11=december
+                        startTime.set(Calendar.YEAR, 2021);
+                        Calendar endTime = (Calendar) startTime.clone();
+                        endTime.set(Calendar.DAY_OF_MONTH, 15+x*7);
+                        endTime.set(Calendar.HOUR_OF_DAY, 8+i);
+                        endTime.set(Calendar.MINUTE, 30);//endTime.set(Calendar.MINUTE,Stages.get(i).getVisite(); //Ca devrait être ceci mais parce que la base de donnée ne voit pas le bon insert.
+                        endTime.set(Calendar.MONTH, 11);
+                        endTime.set(Calendar.YEAR, 2021);
+
+                        WeekViewEvent event = new WeekViewEvent(0, Stages.get(i).getEtudiant().toString(), startTime, endTime);
+                        event.setColor(R.color.orange);
+                        events.add(event);
+                    }
+
                 }
                 return  events;
             }
