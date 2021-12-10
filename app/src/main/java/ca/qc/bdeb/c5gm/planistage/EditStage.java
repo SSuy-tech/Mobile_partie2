@@ -222,7 +222,6 @@ public class EditStage extends AppCompatActivity {
             visite=60;
         }
         stage.setVisite(visite);
-        //ajouterDispo();
 
 
         Intent intentMessage = new Intent();
@@ -308,32 +307,7 @@ public class EditStage extends AppCompatActivity {
         timePickerDialog.show();
     }
 
-    /**
-     * Get TimeSlot
-     * @param view
-     */
-    public void pickTimeSlot(View view){
-        boolean picked;
-        boolean done=false;
-        for(int jours=0;jours<3 &&!done;jours++){//garde les jours entre mercredi et vendredi
-            for (int i = 0; i < timeSlots[jours].length &&!done; i++) {
-                picked=false;
-                if(jdDisponibTuteur[jours][i] == true && !done){
-                    for (int x = 0; x < visite; x++) {
-                        if(timeSlots[jours][x+i]==true&&!picked){
-                            picked=true;
-                        }
-                    }
-                    if(!picked){
-                        for (int x = 0; x < visite; x++) {
-                            timeSlots[jours][x+i]=true;
-                            done=true;
-                        }
-                    }
-                }
-            }
-        }
-    }
+
 
     public void checkboxSwitcher1(View view){
         if(once.isChecked()){
