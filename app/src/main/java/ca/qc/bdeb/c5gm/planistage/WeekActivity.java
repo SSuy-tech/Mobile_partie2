@@ -67,7 +67,7 @@ public class WeekActivity extends AppCompatActivity {
                     for(int x=0;x<10;x++){
                         Calendar startTime = Calendar.getInstance();
                         startTime.set(Calendar.DAY_OF_MONTH, 8+x*7);
-                        startTime.set(Calendar.HOUR_OF_DAY, 8+i);
+                        startTime.set(Calendar.HOUR_OF_DAY, 8+i);//Commence à 8h et incremente
                         startTime.set(Calendar.MINUTE, 0);
                         startTime.set(Calendar.MONTH, 11);//0 = january 11=december
                         startTime.set(Calendar.YEAR, 2021);
@@ -78,7 +78,7 @@ public class WeekActivity extends AppCompatActivity {
                         endTime.set(Calendar.MONTH, 11);
                         endTime.set(Calendar.YEAR, 2021);
 
-                        WeekViewEvent event = new WeekViewEvent(0, Stages.get(i).getEtudiant().toString(), startTime, endTime);
+                        WeekViewEvent event = new WeekViewEvent(0, Stages.get(i).getEtudiant().toString()+" "+(8+i)+":"+30, startTime, endTime);
                         event.setColor(R.color.orange);
                         events.add(event);
                     }
