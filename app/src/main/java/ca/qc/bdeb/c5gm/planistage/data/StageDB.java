@@ -435,6 +435,7 @@ public class StageDB extends SQLiteOpenHelper {
     public boolean ajoutStage(Stage stage) {
         SQLiteDatabase db = this.getWritableDatabase(); // On veut ecrire dans la BD
 
+
         if (stage == null || stage.getEtudiant() == null || stage.getEntreprise() == null)
             return false;
 
@@ -446,7 +447,18 @@ public class StageDB extends SQLiteOpenHelper {
         values.put(TblStage.PROFESSEUR_ID, 1);
         values.put(TblStage.PRIORITE, stage.getPriorite().ordinal());
 
-        return db.insert(TblStage._NAME, null, values) == 1;
+
+        ContentValues values2 = new ContentValues();
+        values2.put(TblVisite._ID,stage.getId().toString());
+        values2.put(TblVisite.STAGE_ID,UUID.randomUUID().toString());
+        values2.put(TblVisite.DUREE,stage.getVisite());
+        values2.put(TblVisite.HEURE_DEBUT,stage.getTimeStage());
+
+
+        //Vérifie si les inserts marchent
+        return db.insert(TblStage._NAME, null, values) == 1
+                &&
+                db.insert(TblVisite._NAME,null,values2)==1;
     }
 
     public void modifierImageEleve( Compte eleve ) {

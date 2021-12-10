@@ -96,7 +96,7 @@ public class EditStage extends AppCompatActivity {
         } else {
             listeEleves = db.getLesElevesSansStage();
             stage = new Stage(eleveSeletion, prof, entrepriseSeletion, StageUtils.getAnnee(),
-                    Priorite.BASSE,"00:00","00:00",null,0,null);
+                    Priorite.BASSE,"0000","0000",null,0,null);
         }
 
         listeEntreprises = db.getToutesLesEntreprises();
@@ -197,8 +197,21 @@ public class EditStage extends AppCompatActivity {
         stage.setEtudiant(eleveSeletion);
 
         stage.setJourdeStage(jdStages);
-        stage.setTimeStage(timePickStage.getText().toString());
-        stage.setTimeDiner(timePickDiner.getText().toString());
+        if(timePickStage.getText().toString()=="Temps"){
+            int index1 = timePickStage.getText().toString().indexOf(":");
+            System.out.println(timePickStage.getText().toString().substring(0, index1));
+            stage.setTimeStage(timePickStage.getText().toString());
+        }else{
+            stage.setTimeStage("00");
+        }
+        if(timePickDiner.getText().toString()=="Temps"){
+            int index2 = timePickStage.getText().toString().indexOf(":");
+            System.out.println(timePickStage.getText().toString().substring(0, index2));
+            stage.setTimeDiner(timePickDiner.getText().toString());
+        }else{
+            stage.setTimeStage("00");
+        }
+
         stage.setVisite(visite);
         ajouterDispo();
         stage.setJourdeDispoTuteur(jdDisponibTuteur);
