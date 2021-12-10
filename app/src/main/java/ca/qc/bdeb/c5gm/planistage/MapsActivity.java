@@ -189,7 +189,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .zoom(10)
                 .build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(positionInitialle));
-
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker) {
+                marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
+                return false;
+            }
+        });
         placerLesReperes();
 
     }
